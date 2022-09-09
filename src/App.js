@@ -3,24 +3,25 @@ import './App.css';
 import Nav from './components/shared/Nav';
 import Welcome from './components/Welcome';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import dashboard from './components/dashboard/dashboard';
 import CreateWallet from './components/dashboard/dashboardOperations/CreateWallet';
 
 function App() {
   return (
-    <div>
-     <BrowserRouter>
-        <Route path="/" component={Nav} /> 
+    
+      <Router>
+         
        <Routes>
-          <Route path="/" exact component={Welcome} />
-         <Route path="/dashboard" exact component={dashboard} />
-         <Route path="/CreateWallet" exact component={CreateWallet} /> 
+       <Route path="/" element={<Nav />} exact />
+          <Route path="/" element={<Welcome />} exact />
+         <Route path="/dashboard"  element={<dashboard />} exact />
+         <Route path="/CreateWallet"  element={<CreateWallet />} exact /> 
        </Routes>
-      <h1>Hello</h1>
-     </BrowserRouter>
-    //<h1>Hello There</h1>
-    </div>
+      
+     </Router>
+     
+    
   );
 }
 
